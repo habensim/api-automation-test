@@ -1,0 +1,472 @@
+{
+  "stats": {
+    "suites": 9,
+    "tests": 12,
+    "passes": 12,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T14:03:46.423Z",
+    "end": "2021-11-10T14:03:50.867Z",
+    "duration": 4444,
+    "testsRegistered": 12,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7243191d-5e53-4708-8365-3ff0884aa940",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a84eda6d-5117-4354-b749-a207903ba85b",
+          "title": "DELETE posts/1",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\deleteReq.js",
+          "file": "\\test\\deleteReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "DELETE posts/1",
+              "fullTitle": "DELETE posts/1 DELETE posts/1",
+              "timedOut": false,
+              "duration": 932,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return request.delete(endPoints.endpoint)\n    .set('Accept' , 'application/json')\n    .set('Content-Type' , 'application/json')\n    .then((res) => {\n        expect(res.statusCode).to.equals(200);\n        console.log('Status Code = ', res.statusCode);\n        if(res.statusCode == 200){\n            console.log(\"Data berhasil di hapus\")\n        }else{\n            console.log(error);\n        }\n});",
+              "err": {},
+              "uuid": "831c081b-f2f3-496d-a079-1ff6e50e9207",
+              "parentUUID": "a84eda6d-5117-4354-b749-a207903ba85b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "831c081b-f2f3-496d-a079-1ff6e50e9207"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 932,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "541ebe22-aa5d-490f-ab6e-1874b3399682",
+          "title": "GET /posts",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\getReq.js",
+          "file": "\\test\\getReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET /posts",
+              "fullTitle": "GET /posts GET /posts",
+              "timedOut": false,
+              "duration": 256,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return request.get(`posts`).then((res) => {\n    expect(res.statusCode).to.equal(200);\n    console.log('Status Code = ', res.statusCode);\n    console.log('Isi dari Body = ', res.body);\n    expect(res.body).to.not.be.empty;\n});",
+              "err": {},
+              "uuid": "1b46560f-bb2c-4c63-aabe-784c49e96da5",
+              "parentUUID": "541ebe22-aa5d-490f-ab6e-1874b3399682",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET /posts/:id",
+              "fullTitle": "GET /posts GET /posts/:id",
+              "timedOut": false,
+              "duration": 112,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return request.get(endPoints.validEndpoint+endPoints.postsByID).then((res) => {\n    expect(res.statusCode).to.equal(200);\n    console.log('Status Code = ', res.statusCode);\n    console.log('Isi dari Body = ', res.body);\n    //check isi dari body\n    validator.responseBodyValidator(res);\n});",
+              "err": {},
+              "uuid": "e7b049b7-d431-45e6-a40f-9c24e9dca8aa",
+              "parentUUID": "541ebe22-aa5d-490f-ab6e-1874b3399682",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET /posts/:id/comments",
+              "fullTitle": "GET /posts GET /posts/:id/comments",
+              "timedOut": false,
+              "duration": 1087,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return request.get(endPoints.validEndpoint+endPoints.postsByID+endPoints.postsBycomments).then((res) => {\n    console.log(res.body);\n    expect(res.statusCode).to.equal(200);\n    console.log('Status Code = ', res.statusCode);\n    //check isi dari body & Comments\n    validator.responseBodyValidatorwithComments(res);\n});",
+              "err": {},
+              "uuid": "0b190ae6-0d47-4477-925a-c915f29f8ede",
+              "parentUUID": "541ebe22-aa5d-490f-ab6e-1874b3399682",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET /comments?postId=id",
+              "fullTitle": "GET /posts GET /comments?postId=id",
+              "timedOut": false,
+              "duration": 714,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return request.get(endPoints.validEndpoint+endPoints.postsByID+endPoints.postsBycomments+endPoints.queryParameter).then((res) => {\n    console.log(res.body);\n    expect(res.statusCode).to.equal(200);\n    console.log('Status Code = ', res.statusCode);\n    //check isi dari body & Comments\n    validator.responseBodyValidatorwithComments(res);\n});",
+              "err": {},
+              "uuid": "18f864d8-623a-4437-b182-38dd204e5874",
+              "parentUUID": "541ebe22-aa5d-490f-ab6e-1874b3399682",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1b46560f-bb2c-4c63-aabe-784c49e96da5",
+            "e7b049b7-d431-45e6-a40f-9c24e9dca8aa",
+            "0b190ae6-0d47-4477-925a-c915f29f8ede",
+            "18f864d8-623a-4437-b182-38dd204e5874"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2169,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "5f0df51d-3277-40d4-bda3-395f9606bd3d",
+          "title": "POST /posts",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\postReq.js",
+          "file": "\\test\\postReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "POST /posts",
+              "fullTitle": "POST /posts POST /posts",
+              "timedOut": false,
+              "duration": 677,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let ReqBody = validPayload(dataTest.testData.testTile, dataTest.testData.testBody, dataTest.testData.userId);\nconsole.log('Request Payload: ', ReqBody );\nreturn request.post(endPoints.validEndpoint, ReqBody)\n    .set('Accept' , 'application/json')\n    .set('Content-Type' , 'application/json; charset=UTF-8')\n    .send(ReqBody)\n    .then((res) => {\n        expect(res.statusCode).to.equals(201);\n        console.log('Status Code = ', res.statusCode);\n        console.log('Isi dari Body = ', res.body);\n        global._id = res.body.id;\n        if(res.status == 201){\n            console.log('Data Berhasil di tambahkan');\n            validator.responseBodyValidator(res);\n        }else{\n            console.log(error);\n        }\n});",
+              "err": {},
+              "uuid": "07980eb0-99aa-465d-8228-0329e1a6e024",
+              "parentUUID": "5f0df51d-3277-40d4-bda3-395f9606bd3d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "07980eb0-99aa-465d-8228-0329e1a6e024"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 677,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "b050467c-4437-4075-bd0b-fb462d8a0fc8",
+          "title": "PUT posts/1",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\putReq.js",
+          "file": "\\test\\putReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "PUT posts/1",
+              "fullTitle": "PUT posts/1 PUT posts/1",
+              "timedOut": false,
+              "duration": 642,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let ReqBody = validPayload(dataTest.testData.id, dataTest.testData.testTile, dataTest.testData.testBody,dataTest.testData.userId);\nconsole.log('Request Payload: ', ReqBody );\nreturn request.put(endPoints.endpoint, ReqBody)\n    .set('Accept' , 'application/json')\n    .set('Content-Type' , 'application/json; charset=UTF-8')\n    .send(ReqBody)\n    .then((res) => {\n        console.log('Response Body is= ', res.body);\n        expect(res.statusCode).to.equals(200);\n        console.log('Status Code = ', res.statusCode);\n        console.log('Isi dari Body = ', res.body);\n        if(res.statusCode == 200){\n            console.log(\"Data berhasil di update!\")\n            validator.responseBodyValidator(res);\n        }else{\n            console.log(error);\n        }\n});",
+              "err": {},
+              "uuid": "b41b7b75-9b84-42ac-80a8-15e62203d142",
+              "parentUUID": "b050467c-4437-4075-bd0b-fb462d8a0fc8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b41b7b75-9b84-42ac-80a8-15e62203d142"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 642,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4e6bc505-33c3-41fb-899d-7986e4011f2d",
+          "title": "Verify JSON Response OK",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\putReq.js",
+          "file": "\\test\\putReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Response OK",
+              "fullTitle": "Verify JSON Response OK Response OK",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.expect(res.body.userId).to.be.a('number');\nchai.expect(res.body.userId).to.have.equal(dataTest.testData.userId);\nchai.expect(res.body.id).to.be.a('number');\nchai.expect(res.body.id).to.have.equal(dataTest.testData.id);\nchai.expect(res.body.title).to.be.a('string');\nchai.expect(res.body.title).to.have.equal(dataTest.testData.title);\nchai.expect(res.body.body).to.be.a('string');\nchai.expect(res.body.body).to.have.equal(dataTest.testData.body);",
+              "err": {},
+              "uuid": "651bb402-7349-402d-9378-be5f828821a4",
+              "parentUUID": "4e6bc505-33c3-41fb-899d-7986e4011f2d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "651bb402-7349-402d-9378-be5f828821a4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "3b7d993a-272e-4f6d-9ea8-9a8227b3db13",
+          "title": "Verify JSON Response Comment OK",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\putReq.js",
+          "file": "\\test\\putReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Response OK",
+              "fullTitle": "Verify JSON Response Comment OK Response OK",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.expect(res.body[0].postId).to.be.a('number');\nchai.expect(res.body[0].postId).to.have.equal(dataTest.testData.postId);\nchai.expect(res.body[0].id).to.be.a('number');\nchai.expect(res.body[0].id).to.have.equal(dataTest.testData.id);\nchai.expect(res.body[0].name).to.be.a('string');\nchai.expect(res.body[0].name).to.have.equal(dataTest.testData.name);\nchai.expect(res.body[0].email).to.be.a('string');\nchai.expect(res.body[0].email).to.have.equal(dataTest.testData.email);\nchai.expect(res.body[0].body).to.be.a('string');\nchai.expect(res.body[0].body).to.have.equal(dataTest.testData.body1);",
+              "err": {},
+              "uuid": "16946b66-d343-4c51-bd87-6b80322674b5",
+              "parentUUID": "3b7d993a-272e-4f6d-9ea8-9a8227b3db13",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "16946b66-d343-4c51-bd87-6b80322674b5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "83b2306b-5198-4ea6-b5e4-ac822cf55213",
+          "title": "Verify JSON Response Comment OK",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\putReq.js",
+          "file": "\\test\\putReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Response OK",
+              "fullTitle": "Verify JSON Response Comment OK Response OK",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.expect(res.body[0].postId).to.be.a('number');\nchai.expect(res.body[0].postId).to.have.equal(dataTest.testData.postId);\nchai.expect(res.body[0].id).to.be.a('number');\nchai.expect(res.body[0].id).to.have.equal(dataTest.testData.id);\nchai.expect(res.body[0].name).to.be.a('string');\nchai.expect(res.body[0].name).to.have.equal(dataTest.testData.name);\nchai.expect(res.body[0].email).to.be.a('string');\nchai.expect(res.body[0].email).to.have.equal(dataTest.testData.email);\nchai.expect(res.body[0].body).to.be.a('string');\nchai.expect(res.body[0].body).to.have.equal(dataTest.testData.body1);",
+              "err": {},
+              "uuid": "572960be-3d3f-4131-89ea-a7cad83c93f0",
+              "parentUUID": "83b2306b-5198-4ea6-b5e4-ac822cf55213",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "572960be-3d3f-4131-89ea-a7cad83c93f0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "72419700-32b2-4704-b07b-44ce38316143",
+          "title": "Verify JSON Response OK",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\putReq.js",
+          "file": "\\test\\putReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Response OK",
+              "fullTitle": "Verify JSON Response OK Response OK",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.expect(res.body.title).to.be.a('string');\nchai.expect(res.body.title).to.have.equal(dataTest.testData.testTile);\nchai.expect(res.body.body).to.be.a('string');\nchai.expect(res.body.body).to.have.equal(dataTest.testData.testBody);\nchai.expect(res.body.userId).to.be.a('number');\nchai.expect(res.body.userId).to.have.equal(dataTest.testData.userId);\nchai.expect(res.body.id).to.be.a('number');\nchai.expect(res.body.id).to.have.equal(global._id);",
+              "err": {},
+              "uuid": "d9c42d88-e22e-4c3d-8d72-d26968ff286d",
+              "parentUUID": "72419700-32b2-4704-b07b-44ce38316143",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d9c42d88-e22e-4c3d-8d72-d26968ff286d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "bf7bab64-5ffd-4429-b409-ac4b235f4187",
+          "title": "Verify JSON Response OK",
+          "fullFile": "D:\\QA\\LAB\\cypress-demo\\API_TESTING\\api-automation-test\\test\\putReq.js",
+          "file": "\\test\\putReq.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Response OK",
+              "fullTitle": "Verify JSON Response OK Response OK",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.expect(res.body.id).to.be.a('number');\nchai.expect(res.body.id).to.have.equal(dataTest.testData.id);\nchai.expect(res.body.title).to.be.a('string');\nchai.expect(res.body.title).to.have.equal(dataTest.testData.testTile);\nchai.expect(res.body.body).to.be.a('string');\nchai.expect(res.body.body).to.have.equal(dataTest.testData.testBody);\nchai.expect(res.body.userId).to.be.a('number');\nchai.expect(res.body.userId).to.have.equal(dataTest.testData.userId);",
+              "err": {},
+              "uuid": "ed087e77-1b2a-4646-b639-9a71539a6fcb",
+              "parentUUID": "bf7bab64-5ffd-4429-b409-ac4b235f4187",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ed087e77-1b2a-4646-b639-9a71539a6fcb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Test_Report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "Report",
+        "reportFilename": "Test_Report"
+      },
+      "version": "6.0.1"
+    }
+  }
+}

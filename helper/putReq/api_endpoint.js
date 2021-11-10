@@ -1,0 +1,1 @@
+exports.endpoint = 'posts/1'
