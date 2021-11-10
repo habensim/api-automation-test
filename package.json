@@ -1,0 +1,26 @@
+{
+  "name": "super-api-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha --timeout 5000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/register": "^7.16.0",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "crossfilter": "^1.3.12"
+  }
+}
